@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Advantage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom gradient for the hero section */
+        .bg-gradient-custom {
+            background: linear-gradient(90deg, #6a00f4 0%, #ff6ec7 50%, #00d2ff 100%);
+        }
+
+        /* Styling for header text gradient and animations */
+        .text-gradient {
+            background: linear-gradient(to right, #4a90e2, #9013fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hover-effect:hover {
+            transform: translateY(-3px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        header {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Travel Services Section */
+        .travel-services-section {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .travel-services-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .travel-services-section p {
+            font-size: 1.2rem;
+            color: #777;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-items: center;
+        }
+
+        .service-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .service-item h3 {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 0.5rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        /* Custom grid for the last row */
+        .services-grid-last-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 715px;
+            margin: 0 auto;
+            justify-items: center;
+            margin-top: 1.5%;
+        }
+
+        /* Centered image section */
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .logo-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Video Modal Section */
+        .video-section {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            color: white;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: none;
+            outline: none;
+            border-radius: 50%;
+            padding: 10px 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 10% auto;
+            padding: 0;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 600px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .testimonial-slide {
+            display: none;
+        }
+        .active-slide {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Header Section -->
+    <header class="bg-white shadow-md py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo and Navigation -->
+            <div class="flex items-center space-x-10">
+                <img src="images/Logo_TravelAdvantage_Distributor_BleuClair.png" alt="Travel Advantage Logo" class="h-12">
+                <nav class="hidden md:flex space-x-8 text-gray-600">
+                    <a href="#" class="text-gradient hover-effect">Accueil</a>
+                    <a href="#" class="text-gradient hover-effect">Avantages</a>
+                    <a href="#" class="text-gradient hover-effect">Adhésion</a>
+                    <a href="#" class="text-gradient hover-effect">Opportunité</a>
+                    <a href="#" class="text-gradient hover-effect">Qui sommes nous</a>
+                    <a href="#" class="text-gradient hover-effect">Contact</a>
+                </nav>
+            </div>
+            <!-- Profile and Discover Button -->
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center">
+                    <img src="images/profile_amokrane_ismail.PNG" alt="Amokrane Ismail" class="h-8 w-8 rounded-full object-cover mr-2">
+                    <span class="hidden md:block text-sm text-gray-600">Amokrane Ismail</span>
+                </div>
+                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    DÉCOUVRIR
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Hero with Parallax -->
+    <section class="relative bg-cover bg-center h-screen bg-gradient-custom" style="background-image: url('images/hero.jpg');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative z-10 flex items-center justify-center h-full">
+            <div class="text-center text-white">
+                <h1 class="text-6xl font-bold mb-6">Explorez le Monde avec Travel Advantage</h1>
+                <p class="text-xl mb-8">Des offres exclusives pour vos voyages à travers le globe.</p>
+                <a href="#offres" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition">Voir les offres</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Banner Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-teal-400 py-4">
+        <div class="container mx-auto flex justify-around items-center max-w-screen-xl">
+            <!-- Logo 1 -->
+            <div>
+                <img src="images/Atout_France.png" alt="Logo 1" class="h-20">
+            </div>
+            <!-- Logo 2 -->
+            <div>
+                <img src="images/TIDS.png" alt="Logo 2" class="h-20">
+            </div>
+            <!-- Logo 3 -->
+            <div>
+                <img src="images/ETOA.png" alt="Logo 3" class="h-16">
+            </div>
+            <!-- Logo 4 -->
+            <div>
+                <img src="images/IATA.png" alt="Logo 4" class="h-16">
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Travel Services Section -->
+    <section class="travel-services-section" >
+        <h2>Votre site de voyages exclusif</h2>
+        <p>Une adhésion pour tous vos besoins de voyages</p>
+        <div class="services-grid">
+            <div class="service-item">
+                <img src="images/hotels.jpg" alt="Hôtels">
+                <h3>HÔTELS</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/resorts.jpg" alt="Resorts">
+                <h3>RESORTS</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/flights.jpg" alt="Vols">
+                <h3>VOLS</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/LOCATIONS DE VOITURES.jpg" alt="Locations de Voitures">
+                <h3>LOCATIONS DE VOITURES</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/transfers.jpg" alt="Transferts">
+                <h3>TRANSFERTS</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/ACTIVITÉS.jpg" alt="Activités">
+                <h3>ACTIVITÉS</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/MALL.jpg" alt="Lifestyle Mall">
+                <h3>LIFESTYLE MALL</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/life experiences.jpg" alt="Life Experiences">
+                <h3>LIFE EXPERIENCES</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/TRANSPORT TERRESTRE.jpg" alt="Transports Terrestres">
+                <h3>TRANSPORTS TERRESTRES</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/CROISIÈRES.jpg" alt="Croisières">
+                <h3>CROISIÈRES</h3>
+            </div>
+        </div>
+
+        <!-- Last Row (centered) -->
+        <div class="services-grid-last-row">
+            <div class="service-item">
+                <img src="images/Séjours.jpg" alt="Séjours">
+                <h3>SÉJOURS</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/Tikets.jpg" alt="Billets">
+                <h3>BILLETS</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/flash sals.jpg" alt="Offres Flash">
+                <h3>OFFRES FLASH</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Offers -->
+    <section id="offres" class="py-16 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-12">Nos Offres Exclusives</h2>
+            <!-- Details of offers -->
+        </div>
+    </section>
+        <!-- Section for Member Benefits -->
+        <section class="py-16">
+            <div class="container mx-auto text-center max-w-screen-xl">
+                <p class="text-blue-400 text-lg mb-4">Profitez du style de vie de vos rêves</p>
+                <h2 class="text-4xl font-bold mb-8">Découvrez vos avantages en tant que Membre !</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex justify-center mb-4">
+                            <img src="images/icone 1.jpg" alt="Icon économies membres" class="h-20"> <!-- Increased icon size -->
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Importantes économies Membres</h3>
+                        <p class="text-gray-600 mb-4">Débloquez des offres négociées sur des hôtels de grande marque dans vos destinations préférées.</p>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold">En savoir plus</a>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex justify-center mb-4">
+                            <img src="images/icone 2.jpg" alt="Icon Lifestyle Mall" class="h-20"> <!-- Increased icon size -->
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Lifestyle Mall</h3>
+                        <p class="text-gray-600 mb-4">Des économies considérables sur un large choix de grandes marques!</p>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold">En savoir plus</a>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex justify-center mb-4">
+                            <img src="images/icone 3.jpg" alt="Icon Life Experiences" class="h-20"> <!-- Increased icon size -->
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Life Experiences®</h3>
+                        <p class="text-gray-600 mb-4">Créez des souvenirs impérissables grâce à nos Life Experiences®!</p>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold">En savoir plus</a>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex justify-center mb-4">
+                            <img src="images/icone 4.jpg" alt="Icon Points Fidélité" class="h-20"> <!-- Increased icon size -->
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Points fidélité</h3>
+                        <p class="text-gray-600 mb-4">Gagnez chaque mois des points fidélité et utilisez-les pour vos prochains voyages ou pour vos achats dans le Lifestyle Mall !</p>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold">En savoir plus</a>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex justify-center mb-4">
+                            <img src="images/icone 5.jpg" alt="Icon Crédits Voyage" class="h-20"> <!-- Increased icon size -->
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Crédits Voyage !</h3>
+                        <p class="text-gray-600 mb-4">Cumulez des Crédits voyages et appliquez-les sur vos futures réservations.</p>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold">En savoir plus</a>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex justify-center mb-4">
+                            <img src="images/icone 6.jpg" alt="Icon Guest Pass" class="h-20"> <!-- Increased icon size -->
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Guest Pass</h3>
+                        <p class="text-gray-600 mb-4">Invitez d'autres personnes à utiliser la plateforme et gagnez des récompenses.</p>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Section for Membership Plans -->
+    <section class="py-16">
+        <div class="container mx-auto text-center max-w-screen-xl">
+            <p class="text-blue-400 text-lg mb-4">Commencez à profiter du style de vie de vos rêves dès aujourd'hui</p>
+            <h2 class="text-4xl font-bold mb-8">Choisissez une formule d'adhésion et commencez à faire des économies !</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Card 1: Guest -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="images/GUEST.png" alt="Guest Card" class="h-24 mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2">GUEST</h3>
+                    <p class="text-3xl font-bold mb-2">GRATUIT !</p>
+                    <p class="text-sm text-gray-500 mb-4">Activation 0 $</p>
+                    <ul class="text-left mb-6">
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Accès aux hôtels</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Support 24/7</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Gagnez des Crédits voyages</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Recommandez de nouveaux Membres</li>
+                    </ul>
+                    <div class="text-center mb-4">
+                        <span class="block font-bold text-lg">GUEST PASS</span>
+                        <span class="text-blue-500">10 immédiatement</span>
+                    </div>
+                    <a href="#" class="block bg-teal-500 hover:bg-teal-700 text-white py-3 px-6 rounded-lg">Inscription Guest</a>
+                </div>
+
+                <!-- Card 2: VIP -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="images/VIP.jpg" alt="VIP Card" class="h-24 mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2">VIP</h3>
+                    <p class="text-3xl font-bold mb-2">19,97 $/mois</p>
+                    <p class="text-sm text-gray-500 mb-4">+ Activation 20 $</p>
+                    <ul class="text-left mb-6">
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Accès étendu à la plateforme</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Réductions importantes sur les hôtels</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Garantie meilleur prix 150 %</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> 1 voyageur additionnel</li>
+                    </ul>
+                    <div class="text-center mb-4">
+                        <span class="block font-bold text-lg">GUEST PASS</span>
+                        <span class="text-blue-500">15 immédiatement + 3 par mois</span>
+                    </div>
+                    <a href="#" class="block bg-teal-500 hover:bg-teal-700 text-white py-3 px-6 rounded-lg">Inscription VIP</a>
+                </div>
+
+                <!-- Card 3: Plus -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="images/PLUS.png" alt="Plus Card" class="h-24 mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2">PLUS</h3>
+                    <p class="text-3xl font-bold mb-2">59,97 $/mois</p>
+                    <p class="text-sm text-gray-500 mb-4">+ Activation 60 $</p>
+                    <ul class="text-left mb-6">
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Toute l'offre VIP</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Davantage de Guest Pass</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Accès aux Life Experiences®</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Accès au Lifestyle Mall</li>
+                        <li><br></li>
+                    </ul>
+                    <div class="text-center mb-4">
+                        <span class="block font-bold text-lg">GUEST PASS</span>
+                        <span class="text-blue-500">25 immédiatement + 10 par mois</span>
+                    </div>
+                    <a href="#" class="block bg-teal-500 hover:bg-teal-700 text-white py-3 px-6 rounded-lg">Inscription Plus</a>
+                </div>
+
+                <!-- Card 4: Elite -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <img src="images/ELITE.png" alt="Elite Card" class="h-24 mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2">ELITE</h3>
+                    <p class="text-3xl font-bold mb-2">119,97 $/mois</p>
+                    <p class="text-sm text-gray-500 mb-4">+ Activation 120 $</p>
+                    <ul class="text-left mb-6">
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Toute l'offre PLUS</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> Offres exclusives Elite</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> 4 voyageurs additionnels</li>
+                        <li class="flex items-center mb-2"><span class="text-blue-500 mr-2">✔</span> 120 Points fidélité</li>
+                        <li><br></li>
+                    </ul>
+                    <div class="text-center mb-4">
+                        <span class="block font-bold text-lg">GUEST PASS</span>
+                        <span class="text-blue-500">50 immédiatement + 20 par mois</span>
+                    </div>
+                    <a href="#" class="block bg-teal-500 hover:bg-teal-700 text-white py-3 px-6 rounded-lg">Inscription Elite</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonial Section -->
+    <section class="py-16">
+        <div class="container mx-auto max-w-screen-xl">
+            <p class="text-blue-400 text-lg mb-4 text-center">Nos témoignages</p>
+            <h2 class="text-4xl font-bold mb-8 text-center">Quelques mots de nos Membres</h2>
+
+            <!-- Testimonial Slides -->
+            <div class="testimonial-slide active-slide">
+                <div class="md:flex items-center">
+                    <!-- Testimonial Text -->
+                    <div class="md:w-2/3 text-left">
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-500 mr-2">★★★★★</span>
+                        </div>
+                        <p class="text-lg text-gray-600 italic mb-6">
+                            “Merci à Travel Advantage de m'avoir permis de vivre un grand rêve, celui de voyager avec des partenaires tous aussi géniaux les uns que les autres ! Cela fait 2 ans que j'utilise la plateforme, et la Life Experience à Malaga a changé ma vie.”
+                        </p>
+                        <div class="flex items-center">
+                            <img src="images/temoi 1.jpg" alt="Loïc C." class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold">Loïc C.</p>
+                                <p class="text-gray-500 text-sm">Membre</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial Photo -->
+                    <div class="md:w-1/3 flex justify-center items-center">
+                        <img src="images/temoi 1.jpg" alt="Loïc C." class="rounded-lg w-48 h-48 object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-slide">
+                <div class="md:flex items-center">
+                    <!-- Testimonial Text -->
+                    <div class="md:w-2/3 text-left">
+                        <div class="flex items-center mb-4">
+                            <span class="text-yellow-500 mr-2">★★★★★</span>
+                        </div>
+                        <p class="text-lg text-gray-600 italic mb-6">
+                            “Cette plateforme m'a ouvert les portes des meilleures expériences que je n'aurais jamais pu imaginer. Merci à Travel Advantage pour toutes ces opportunités !”
+                        </p>
+                        <div class="flex items-center">
+                            <img src="images/temoi 2.jpg" alt="Sara B." class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold">Sara B.</p>
+                                <p class="text-gray-500 text-sm">Membre</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial Photo -->
+                    <div class="md:w-1/3 flex justify-center items-center">
+                        <img src="images/temoi 2.jpg" alt="Sara B." class="rounded-lg w-48 h-48 object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more slides here in the same format -->
+
+            <!-- Navigation Arrows -->
+            <div class="flex justify-center items-center mt-6 space-x-4">
+                <button id="prevBtn" class="bg-gray-200 hover:bg-gray-300 p-2 rounded-full">
+                    <span class="sr-only">Previous</span>
+                    <!-- Left Arrow Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <button id="nextBtn" class="bg-gray-200 hover:bg-gray-300 p-2 rounded-full">
+                    <span class="sr-only">Next</span>
+                    <!-- Right Arrow Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+     <!-- Banner Section -->
+     <section class="bg-gradient-to-r from-blue-600 to-teal-400 py-12">
+        <div class="container mx-auto flex justify-between items-center max-w-screen-xl">
+            <div class="text-white text-4xl font-bold">
+                DÉCOUVREZ LE MONDE AVEC STYLE.<br>
+                DEVENEZ MEMBRE DÈS AUJOURD'HUI !
+            </div>
+            <a href="#" class="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg shadow-lg">
+                Rejoignez-nous maintenant →
+            </a>
+        </div>
+    </section>
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="relative">
+            <img src="images/city-6833167_1920.jpg" alt="Video Thumbnail" class="video-thumbnail" id="openModal">
+            <button class="play-button">&#9658;</button>
+        </div>
+    </section>
+
+    <!-- Modal Section for Video -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModal">&times;</span>
+            <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center">
+            &copy; 2024 Travel Advantage. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script>
+        // Modal script
+        const modal = document.getElementById("videoModal");
+        const openModal = document.getElementById("openModal");
+        const closeModal = document.getElementById("closeModal");
+
+        openModal.addEventListener("click", function () {
+            modal.style.display = "block";
+        });
+
+        closeModal.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+        // Temoignage
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            slides[currentSlide].classList.remove('active-slide');
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides[currentSlide].classList.add('active-slide');
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            slides[currentSlide].classList.remove('active-slide');
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active-slide');
+        });
+    </script>
+
+</body>
+
+</html>

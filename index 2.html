@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Advantage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <style>
+        .bg-gradient-custom {
+            background: linear-gradient(90deg, #6a00f4 0%, #ff6ec7 50%, #00d2ff 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #4a90e2, #9013fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hover-effect:hover {
+            transform: translateY(-3px);
+            transition: all 0.3s ease-in-out;
+        }
+        header {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .content-panel {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .panel-left {
+            left: 10%;
+        }
+        .panel-right {
+            right: 10%;
+        }
+        p {
+            margin-bottom: 20px; /* Ensure more space above the button */
+        }
+        .btn {
+            display: block; /* Makes the button a block element */
+            margin: 20px auto 0; /* Adds margin above the button */
+            padding: 12px 24px; /* Adjusts padding for a larger button */
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-white shadow-md py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-10">
+                <img src="images/Logo_TravelAdvantage_Distributor_BleuClair.png" alt="Travel Advantage Logo" class="h-12">
+                <nav class="hidden md:flex space-x-8 text-gray-600">
+                    <a href="#" class="text-gradient hover-effect">Accueil</a>
+                    <a href="#" class="text-gradient hover-effect">Avantages</a>
+                    <a href="#" class="text-gradient hover-effect">Adhésion</a>
+                    <a href="#" class="text-gradient hover-effect">Opportunité</a>
+                    <a href="#" class="text-gradient hover-effect">Qui sommes nous</a>
+                    <a href="#" class="text-gradient hover-effect">Contact</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <img src="images/profile_amokrane_ismail.PNG" alt="Amokrane Ismail" class="h-8 w-8 rounded-full object-cover mr-2">
+                <span class="hidden md:block text-sm text-gray-600">Amokrane Ismail</span>
+                <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    DÉCOUVRIR
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative swiper-container h-screen bg-gradient-custom">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide bg-cover bg-center" style="background-image: url('images/slide1.jpg');">
+                <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+                <div class="content-panel panel-left text-center">
+                    <h2 class="text-4xl font-bold mb-4">Économisez des centaines d'euros par an sur des hotels de rêve</h2>
+                    <p>Profitez de tarifs exclusifs, négociés auprès des grossistes sur des hôtels et resorts de rêve à travers le monde</p>
+                    <a href="#" class="btn">Rejoindre</a>
+                </div>
+                <div class="content-panel panel-right text-center">
+                    <h2 class="text-4xl font-bold mb-4">Découvrez des destinations exotiques</h2>
+                    <p>Évadez-vous dans des lieux inexplorés, avec des forfaits conçus exclusivement pour nos membres</p>
+                    <a href="#" class="btn">Découvrir</a>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </section>
+
+    <section id="offres" class="py-16 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-12">Nos Offres Exclusives</h2>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx text-center">
+            © 2024 Travel Advantage. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var heroSwiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+    </script>
+</body>
+</html>
